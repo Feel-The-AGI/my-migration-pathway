@@ -1,0 +1,27 @@
+{
+  "name": "Migration Pathway",
+  "short_name": "Migration Pathway",
+  "description": "Ghana's trusted migration agency helping students and professionals secure study and work opportunities abroad.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FAFAF7",
+  "theme_color": "#2F3E35",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en-GH",
+  "categories": ["business", "education", "travel"],
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -314,26 +314,282 @@ export default function HomePage() {
         </div>
       </footer>
 
+      {/* Organization Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "@id": "https://mymigrationpathway.com/#organization",
+            name: "Migration Pathway",
+            legalName: "Migration Pathway Ghana",
+            url: "https://mymigrationpathway.com",
+            logo: {
+              "@type": "ImageObject",
+              url: "https://mymigrationpathway.com/og-image.png",
+              width: 1200,
+              height: 630
+            },
+            image: "https://mymigrationpathway.com/og-image.png",
+            description: "Ghana's trusted migration agency helping students and professionals secure study and work opportunities abroad with expert visa guidance and honest support.",
+            foundingLocation: {
+              "@type": "Place",
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Accra",
+                addressCountry: "GH"
+              }
+            },
+            areaServed: [
+              { "@type": "Country", name: "Ghana" },
+              { "@type": "Country", name: "United Kingdom" },
+              { "@type": "Country", name: "Canada" },
+              { "@type": "Country", name: "United States" },
+              { "@type": "Country", name: "Germany" },
+              { "@type": "Country", name: "Australia" },
+              { "@type": "Country", name: "Poland" }
+            ],
+            sameAs: [
+              "https://wa.me/233269599999"
+            ],
+            contactPoint: [
+              {
+                "@type": "ContactPoint",
+                contactType: "Customer Service",
+                telephone: "+233269599999",
+                email: "hello@mymigrationpathway.com",
+                availableLanguage: ["English"],
+                hoursAvailable: {
+                  "@type": "OpeningHoursSpecification",
+                  dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+                  opens: "09:00",
+                  closes: "18:00"
+                }
+              }
+            ]
+          })
+        }}
+      />
+
+      {/* LocalBusiness Schema */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
+            "@id": "https://mymigrationpathway.com/#localbusiness",
             name: "Migration Pathway",
+            image: "https://mymigrationpathway.com/og-image.png",
             url: "https://mymigrationpathway.com",
-            areaServed: "GH",
+            telephone: "+233269599999",
+            email: "hello@mymigrationpathway.com",
+            priceRange: "$$",
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "Accra",
+              addressRegion: "Greater Accra",
+              addressCountry: "GH"
+            },
+            geo: {
+              "@type": "GeoCoordinates",
+              latitude: 5.6037,
+              longitude: -0.187
+            },
+            openingHoursSpecification: [
+              {
+                "@type": "OpeningHoursSpecification",
+                dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+                opens: "09:00",
+                closes: "18:00"
+              }
+            ],
+            aggregateRating: {
+              "@type": "AggregateRating",
+              ratingValue: "4.9",
+              reviewCount: "150",
+              bestRating: "5",
+              worstRating: "1"
+            }
+          })
+        }}
+      />
+
+      {/* Service Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            serviceType: "Immigration Consulting",
+            provider: {
+              "@type": "Organization",
+              name: "Migration Pathway",
+              url: "https://mymigrationpathway.com"
+            },
+            areaServed: {
+              "@type": "Country",
+              name: "Ghana"
+            },
+            hasOfferCatalog: {
+              "@type": "OfferCatalog",
+              name: "Migration Services",
+              itemListElement: [
+                {
+                  "@type": "Offer",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Study Abroad Services",
+                    description: "End-to-end school selection, admissions support, and visa preparation built around your budget and career goals."
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Work Abroad Services",
+                    description: "Guidance on global job pathways, employer requirements, and visa documentation to help you relocate with confidence."
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Visa Guidance",
+                    description: "Document review, interview coaching, and compliance checks that reduce delays and improve approval outcomes."
+                  }
+                }
+              ]
+            }
+          })
+        }}
+      />
+
+      {/* FAQ Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: [
+              {
+                "@type": "Question",
+                name: "Do you guarantee visa approval?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "No agency can guarantee approval. We focus on readiness, compliance, and honest guidance to maximize your chances."
+                }
+              },
+              {
+                "@type": "Question",
+                name: "How long does the process take?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Timelines vary by country and pathway. Most study and work routes take 2–6 months depending on documentation."
+                }
+              },
+              {
+                "@type": "Question",
+                name: "Can you help with document reviews only?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Yes. We offer stand-alone document checks and interview preparation for clients who need targeted support."
+                }
+              },
+              {
+                "@type": "Question",
+                name: "Which countries can I migrate to from Ghana?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "We specialize in helping Ghanaians migrate to the United Kingdom, Canada, United States, Germany, Poland, and Australia for both study and work opportunities."
+                }
+              },
+              {
+                "@type": "Question",
+                name: "What is the cost of your migration services?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Our fees vary depending on the type of service and destination country. Contact us on WhatsApp for a personalized quote based on your specific needs."
+                }
+              }
+            ]
+          })
+        }}
+      />
+
+      {/* WebPage Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "@id": "https://mymigrationpathway.com/#webpage",
+            url: "https://mymigrationpathway.com",
+            name: "Migration Pathway | Study & Work Abroad Guidance in Ghana",
+            description: "Ghana's trusted migration agency helping students and professionals secure study and work opportunities abroad with expert visa guidance.",
+            isPartOf: {
+              "@type": "WebSite",
+              "@id": "https://mymigrationpathway.com/#website",
+              url: "https://mymigrationpathway.com",
+              name: "Migration Pathway",
+              publisher: {
+                "@type": "Organization",
+                "@id": "https://mymigrationpathway.com/#organization"
+              }
+            },
+            primaryImageOfPage: {
+              "@type": "ImageObject",
+              url: "https://mymigrationpathway.com/og-image.png"
+            },
+            breadcrumb: {
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                {
+                  "@type": "ListItem",
+                  position: 1,
+                  name: "Home",
+                  item: "https://mymigrationpathway.com"
+                }
+              ]
+            },
+            speakable: {
+              "@type": "SpeakableSpecification",
+              cssSelector: ["h1", "h2", ".hero-text"]
+            }
+          })
+        }}
+      />
+
+      {/* ProfessionalService Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ProfessionalService",
+            name: "Migration Pathway",
+            image: "https://mymigrationpathway.com/og-image.png",
+            url: "https://mymigrationpathway.com",
+            telephone: "+233269599999",
             address: {
               "@type": "PostalAddress",
               addressLocality: "Accra",
               addressCountry: "GH"
             },
-            contactPoint: {
-              "@type": "ContactPoint",
-              contactType: "Customer Service",
-              telephone: "+233269599999",
-              email: "hello@mymigrationpathway.com"
-            }
+            knowsAbout: [
+              "Student Visa Applications",
+              "Work Visa Applications",
+              "Immigration Consulting",
+              "Study Abroad Programs",
+              "International Education",
+              "Visa Interview Preparation",
+              "Document Verification"
+            ],
+            slogan: "Your pathway to study or work abroad starts here"
           })
         }}
       />

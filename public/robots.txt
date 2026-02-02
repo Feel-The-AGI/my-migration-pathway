@@ -1,0 +1,21 @@
+# Migration Pathway - Robots.txt
+# https://mymigrationpathway.com
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://mymigrationpathway.com/sitemap.xml
+
+# Crawl-delay (optional, for polite crawling)
+Crawl-delay: 1
+
+# Block common bot traps and admin paths
+Disallow: /api/
+Disallow: /_next/static/
+Disallow: /private/
+
+# Allow important resources
+Allow: /og-image.png
+Allow: /*.css
+Allow: /*.js
