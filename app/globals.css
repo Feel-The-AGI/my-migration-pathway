@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  @apply bg-warmwhite text-charcoal antialiased;
+}
+
+::selection {
+  background: rgba(176, 141, 87, 0.2);
+}
+
+.section-spacing {
+  @apply py-16 md:py-24;
+}
+
+.card {
+  @apply rounded-2xl border border-charcoal/10 bg-white shadow-card;
+}
+
+.small-label {
+  @apply text-xs uppercase tracking-[0.3em] text-slate;
+}
+
+.gradient-border {
+  border: 1px solid rgba(47, 62, 53, 0.15);
+  background: linear-gradient(180deg, rgba(250, 250, 247, 0.95), rgba(250, 250, 247, 0.6));
+}
