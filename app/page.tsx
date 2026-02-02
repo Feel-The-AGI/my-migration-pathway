@@ -91,8 +91,7 @@ export default function HomePage() {
             <div className="flex flex-wrap items-center gap-4">
               <a
                 className="rounded-full bg-deepolive px-6 py-3 text-sm font-semibold text-white shadow-soft transition hover:bg-charcoal"
-                href="https://wa.me/233269599999"
-              >
+                href="https://wa.me/233269599999">
                 Chat on WhatsApp
               </a>
               <a
@@ -226,8 +225,7 @@ export default function HomePage() {
               <div className="mt-6 flex flex-wrap gap-4">
                 <a
                   className="rounded-full bg-deepolive px-6 py-3 text-sm font-semibold text-white shadow-soft transition hover:bg-charcoal"
-                  href="https://wa.me/233269599999"
-                >
+                  href="https://wa.me/233269599999">
                   Start a WhatsApp chat
                 </a>
                 <a
@@ -288,8 +286,7 @@ export default function HomePage() {
               </div>
               <a
                 className="rounded-full bg-white px-6 py-3 text-sm font-semibold text-deepolive"
-                href="https://wa.me/233269599999"
-              >
+                href="https://wa.me/233269599999">
                 Chat now
               </a>
             </div>
