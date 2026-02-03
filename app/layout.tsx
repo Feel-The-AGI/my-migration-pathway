@@ -110,7 +110,7 @@ export const metadata: Metadata = {
     site: "@MigrationPathway",
     creator: "@MigrationPathway",
     title: "Migration Pathway | Study & Work Abroad Guidance in Ghana",
-    description: "Ghana's trusted migration agency. Expert visa guidance, school admissions & work placement services. 150+ successful placements. Chat on WhatsApp today.",
+    description: "Ghana's trusted migration agency. Expert visa guidance, school admissions & work placement services. 98% visa success rate. Chat on WhatsApp today.",
     images: {
       url: ogImageUrl,
       alt: "Migration Pathway - Study & Work Abroad from Ghana"

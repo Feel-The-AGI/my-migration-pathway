@@ -1,24 +1,44 @@
 const stats = [
-  { value: "150+", label: "Successful placements" },
-  { value: "12", label: "Destination countries" },
-  { value: "98%", label: "Visa readiness rate" }
+  { value: "98%", label: "Visa success rate" },
+  { value: "99.6%", label: "Student satisfaction" },
+  { value: "40+", label: "UK university partners" }
+];
+
+const socials = [
+  { name: "TikTok", href: "https://www.tiktok.com/@migrationpathway", icon: "tiktok" },
+  { name: "Facebook", href: "https://www.facebook.com/profile.php?id=61587483507405", icon: "facebook" },
+  { name: "Instagram", href: "https://www.instagram.com/mymigrationpathway/", icon: "instagram" }
+];
+
+const fullServices = [
+  "Free one-to-one admission counselling",
+  "Guaranteed Scholarships",
+  "Fast application processing",
+  "Quick offer letters",
+  "Internal English test",
+  "Personal statement writing guidance",
+  "Credibility and visa interview guidance",
+  "Visa application assistance",
+  "Accommodation arrangement",
+  "Airport pick up",
+  "Career guidance"
 ];
 
 const services = [
   {
-    title: "Study Abroad",
+    title: "Education Services",
     description:
-      "End‑to‑end school selection, admissions support, and visa preparation built around your budget and career goals."
+      "Free admission counselling, school selection, scholarship guidance, and full application support to place you into universities abroad."
   },
   {
-    title: "Work Abroad",
+    title: "Migration Services",
     description:
-      "Guidance on global job pathways, employer requirements, and visa documentation to help you relocate with confidence."
+      "Comprehensive visa guidance, document review, interview coaching, and compliance checks to maximize your approval chances."
   },
   {
-    title: "Visa Guidance",
+    title: "Settlement Support",
     description:
-      "Document review, interview coaching, and compliance checks that reduce delays and improve approval outcomes."
+      "Accommodation arrangement, airport pick-up, and career guidance to help you settle into your new destination smoothly."
   }
 ];
 
@@ -91,7 +111,7 @@ export default function HomePage() {
             <div className="flex flex-wrap items-center gap-4">
               <a
                 className="rounded-full bg-deepolive px-6 py-3 text-sm font-semibold text-white shadow-soft transition hover:bg-charcoal"
-                href="https://wa.me/233269599999">
+                href="https://wa.me/233302245205">
                 Chat on WhatsApp
               </a>
               <a
@@ -212,20 +232,53 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section-spacing" id="consultation">
+      {/* About Section */}
+      <section className="section-spacing" id="about">
+        <div className="mx-auto w-full max-w-6xl px-6">
+          <div className="grid gap-12 lg:grid-cols-2">
+            <div>
+              <p className="small-label">About us</p>
+              <h2 className="mt-4 font-serif text-3xl md:text-4xl">A global leader in education & migration.</h2>
+              <p className="mt-6 text-slate">
+                Migration Pathway is a global leader in counselling and providing full application support to place international students into universities abroad.
+              </p>
+              <p className="mt-4 text-slate">
+                Our consultants are former international students who experienced the difficulties and opportunities UK higher education provides. They come from a variety of nationalities and have been trained by our trusted university partners.
+              </p>
+              <p className="mt-4 text-slate">
+                We represent 40+ UK higher education institutions with a 98% visa success rate and 99.6% student satisfaction rate. Our consultants speak 20 different languages across our global offices.
+              </p>
+            </div>
+            <div className="gradient-border rounded-3xl p-8">
+              <p className="small-label">What we provide</p>
+              <h3 className="mt-4 font-serif text-2xl">Comprehensive support services</h3>
+              <ul className="mt-6 grid gap-3 text-sm text-charcoal">
+                {fullServices.map((service) => (
+                  <li key={service} className="flex items-start gap-2">
+                    <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-deepolive" />
+                    {service}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <section className="section-spacing bg-white" id="consultation">
         <div className="mx-auto w-full max-w-6xl px-6">
           <div className="card grid gap-8 p-10 lg:grid-cols-[1.2fr_1fr]">
             <div>
               <p className="small-label">Consultation</p>
-              <h2 className="mt-4 font-serif text-3xl">Let’s design your pathway plan.</h2>
+              <h2 className="mt-4 font-serif text-3xl">Let's design your pathway plan.</h2>
               <p className="mt-4 text-slate">
-                Tell us your destination, timeline, and budget. We’ll outline the steps and help
+                Tell us your destination, timeline, and budget. We'll outline the steps and help
                 you prepare confidently.
               </p>
               <div className="mt-6 flex flex-wrap gap-4">
                 <a
                   className="rounded-full bg-deepolive px-6 py-3 text-sm font-semibold text-white shadow-soft transition hover:bg-charcoal"
-                  href="https://wa.me/233269599999">
+                  href="https://wa.me/233302245205">
                   Start a WhatsApp chat
                 </a>
                 <a
@@ -235,19 +288,59 @@ export default function HomePage() {
                   Email the team
                 </a>
               </div>
+              {/* Social Links */}
+              <div className="mt-8 flex items-center gap-4">
+                <span className="text-sm text-slate">Follow us:</span>
+                <a
+                  href="https://www.tiktok.com/@migrationpathway"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-charcoal/5 text-charcoal transition hover:bg-deepolive hover:text-white"
+                  aria-label="TikTok"
+                >
+                  <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                  </svg>
+                </a>
+                <a
+                  href="https://www.facebook.com/profile.php?id=61587483507405"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-charcoal/5 text-charcoal transition hover:bg-deepolive hover:text-white"
+                  aria-label="Facebook"
+                >
+                  <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                  </svg>
+                </a>
+                <a
+                  href="https://www.instagram.com/mymigrationpathway/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-charcoal/5 text-charcoal transition hover:bg-deepolive hover:text-white"
+                  aria-label="Instagram"
+                >
+                  <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                  </svg>
+                </a>
+              </div>
             </div>
             <div className="space-y-6 rounded-2xl bg-warmwhite p-6">
+              <div>
+                <p className="text-sm font-semibold text-charcoal">Accra Office</p>
+                <p className="text-sm text-slate">47 Nungua Link Road, Second Floor</p>
+                <p className="text-sm text-slate">Baatsona Spintex Road, Accra, Ghana</p>
+                <p className="mt-1 text-xs text-slate">GPS: GA-414-0365</p>
+              </div>
               <div>
                 <p className="text-sm font-semibold text-charcoal">Office hours</p>
                 <p className="text-sm text-slate">Mon–Sat · 9:00am – 6:00pm</p>
               </div>
               <div>
-                <p className="text-sm font-semibold text-charcoal">Location</p>
-                <p className="text-sm text-slate">Accra, Ghana</p>
-              </div>
-              <div>
                 <p className="text-sm font-semibold text-charcoal">Contact</p>
-                <p className="text-sm text-slate">+233 26 959 9999</p>
+                <p className="text-sm text-slate">(030) 224-5205</p>
+                <p className="text-sm text-slate">(030) 252-7999</p>
                 <p className="text-sm text-slate">hello@mymigrationpathway.com</p>
               </div>
             </div>
@@ -286,7 +379,7 @@ export default function HomePage() {
               </div>
               <a
                 className="rounded-full bg-white px-6 py-3 text-sm font-semibold text-deepolive"
-                href="https://wa.me/233269599999">
+                href="https://wa.me/233302245205">
                 Chat now
               </a>
             </div>
@@ -295,21 +388,66 @@ export default function HomePage() {
       </section>
 
       <footer className="border-t border-charcoal/10 py-10">
-        <div className="mx-auto flex w-full max-w-6xl flex-col gap-6 px-6 text-sm text-slate md:flex-row md:items-center md:justify-between">
-          <div>
-            <p className="font-semibold text-charcoal">Migration Pathway</p>
-            <p>Study abroad & work abroad guidance in Ghana.</p>
+        <div className="mx-auto w-full max-w-6xl px-6">
+          <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
+            <div className="max-w-sm">
+              <p className="font-semibold text-charcoal">Migration Pathway</p>
+              <p className="mt-2 text-sm text-slate">Migration and education services. Your trusted partner for study and work abroad guidance in Ghana.</p>
+              <p className="mt-3 text-xs text-slate">47 Nungua Link Road, Baatsona Spintex Road, Accra</p>
+            </div>
+            <div className="flex flex-col gap-2 text-sm">
+              <p className="font-semibold text-charcoal">Quick Links</p>
+              <a className="text-slate hover:text-charcoal" href="#services">Services</a>
+              <a className="text-slate hover:text-charcoal" href="#about">About Us</a>
+              <a className="text-slate hover:text-charcoal" href="#consultation">Consultation</a>
+            </div>
+            <div className="flex flex-col gap-2 text-sm">
+              <p className="font-semibold text-charcoal">Contact</p>
+              <a className="text-slate hover:text-charcoal" href="tel:+233302245205">(030) 224-5205</a>
+              <a className="text-slate hover:text-charcoal" href="tel:+233302527999">(030) 252-7999</a>
+              <a className="text-slate hover:text-charcoal" href="mailto:hello@mymigrationpathway.com">hello@mymigrationpathway.com</a>
+            </div>
+            <div className="flex flex-col gap-3">
+              <p className="font-semibold text-charcoal text-sm">Follow Us</p>
+              <div className="flex gap-3">
+                <a
+                  href="https://www.tiktok.com/@migrationpathway"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex h-9 w-9 items-center justify-center rounded-full bg-charcoal/5 text-slate transition hover:bg-deepolive hover:text-white"
+                  aria-label="TikTok"
+                >
+                  <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                  </svg>
+                </a>
+                <a
+                  href="https://www.facebook.com/profile.php?id=61587483507405"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex h-9 w-9 items-center justify-center rounded-full bg-charcoal/5 text-slate transition hover:bg-deepolive hover:text-white"
+                  aria-label="Facebook"
+                >
+                  <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                  </svg>
+                </a>
+                <a
+                  href="https://www.instagram.com/mymigrationpathway/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex h-9 w-9 items-center justify-center rounded-full bg-charcoal/5 text-slate transition hover:bg-deepolive hover:text-white"
+                  aria-label="Instagram"
+                >
+                  <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
           </div>
-          <div className="flex flex-wrap gap-4">
-            <a className="hover:text-charcoal" href="#services">
-              Services
-            </a>
-            <a className="hover:text-charcoal" href="#consultation">
-              Consultation
-            </a>
-            <a className="hover:text-charcoal" href="mailto:hello@mymigrationpathway.com">
-              Email
-            </a>
+          <div className="mt-10 border-t border-charcoal/10 pt-6 text-center text-xs text-slate">
+            <p>© {new Date().getFullYear()} Migration Pathway. All rights reserved.</p>
           </div>
         </div>
       </footer>
@@ -351,7 +489,10 @@ export default function HomePage() {
               { "@type": "Country", name: "Poland" }
             ],
             sameAs: [
-              "https://wa.me/233269599999"
+              "https://www.tiktok.com/@migrationpathway",
+              "https://www.facebook.com/profile.php?id=61587483507405",
+              "https://www.instagram.com/mymigrationpathway/",
+              "https://wa.me/233302245205"
             ],
             contactPoint: [
               {
@@ -383,11 +524,12 @@ export default function HomePage() {
             name: "Migration Pathway",
             image: "https://mymigrationpathway.com/og-image.png",
             url: "https://mymigrationpathway.com",
-            telephone: "+233269599999",
+            telephone: "+233302245205",
             email: "hello@mymigrationpathway.com",
             priceRange: "$$",
             address: {
               "@type": "PostalAddress",
+              streetAddress: "47 Nungua Link Road, Second Floor, Baatsona Spintex Road",
               addressLocality: "Accra",
               addressRegion: "Greater Accra",
               addressCountry: "GH"
@@ -574,9 +716,10 @@ export default function HomePage() {
             name: "Migration Pathway",
             image: "https://mymigrationpathway.com/og-image.png",
             url: "https://mymigrationpathway.com",
-            telephone: "+233269599999",
+            telephone: "+233302245205",
             address: {
               "@type": "PostalAddress",
+              streetAddress: "47 Nungua Link Road, Second Floor, Baatsona Spintex Road",
               addressLocality: "Accra",
               addressCountry: "GH"
             },
