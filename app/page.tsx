@@ -340,34 +340,84 @@ export default function HomePage() {
           </div>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
             {/* USA - Statue of Liberty */}
-            <div className="card flex flex-col items-center p-6 text-center">
-              <div className="mb-4 text-6xl">🗽</div>
-              <h3 className="font-semibold text-charcoal">United States</h3>
-              <p className="mt-1 text-xs text-slate">Statue of Liberty</p>
+            <div className="card overflow-hidden">
+              <div className="aspect-[4/3] overflow-hidden">
+                <Image
+                  src="https://images.unsplash.com/photo-1485738422979-f5c462d49f74?w=400&h=300&fit=crop"
+                  alt="Statue of Liberty, USA"
+                  width={400}
+                  height={300}
+                  className="h-full w-full object-cover transition hover:scale-105"
+                />
+              </div>
+              <div className="p-4 text-center">
+                <h3 className="font-semibold text-charcoal">United States</h3>
+                <p className="mt-1 text-xs text-slate">Statue of Liberty</p>
+              </div>
             </div>
             {/* Canada - CN Tower */}
-            <div className="card flex flex-col items-center p-6 text-center">
-              <div className="mb-4 text-6xl">🍁</div>
-              <h3 className="font-semibold text-charcoal">Canada</h3>
-              <p className="mt-1 text-xs text-slate">CN Tower</p>
+            <div className="card overflow-hidden">
+              <div className="aspect-[4/3] overflow-hidden">
+                <Image
+                  src="https://images.unsplash.com/photo-1517090504586-fde19ea6066f?w=400&h=300&fit=crop"
+                  alt="CN Tower, Canada"
+                  width={400}
+                  height={300}
+                  className="h-full w-full object-cover transition hover:scale-105"
+                />
+              </div>
+              <div className="p-4 text-center">
+                <h3 className="font-semibold text-charcoal">Canada</h3>
+                <p className="mt-1 text-xs text-slate">Toronto Skyline</p>
+              </div>
             </div>
             {/* France - Eiffel Tower */}
-            <div className="card flex flex-col items-center p-6 text-center">
-              <div className="mb-4 text-6xl">🗼</div>
-              <h3 className="font-semibold text-charcoal">France</h3>
-              <p className="mt-1 text-xs text-slate">Eiffel Tower</p>
+            <div className="card overflow-hidden">
+              <div className="aspect-[4/3] overflow-hidden">
+                <Image
+                  src="https://images.unsplash.com/photo-1511739001486-6bfe10ce65f4?w=400&h=300&fit=crop"
+                  alt="Eiffel Tower, France"
+                  width={400}
+                  height={300}
+                  className="h-full w-full object-cover transition hover:scale-105"
+                />
+              </div>
+              <div className="p-4 text-center">
+                <h3 className="font-semibold text-charcoal">France</h3>
+                <p className="mt-1 text-xs text-slate">Eiffel Tower</p>
+              </div>
             </div>
             {/* Australia - Sydney Opera House */}
-            <div className="card flex flex-col items-center p-6 text-center">
-              <div className="mb-4 text-6xl">🦘</div>
-              <h3 className="font-semibold text-charcoal">Australia</h3>
-              <p className="mt-1 text-xs text-slate">Sydney Opera House</p>
+            <div className="card overflow-hidden">
+              <div className="aspect-[4/3] overflow-hidden">
+                <Image
+                  src="https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?w=400&h=300&fit=crop"
+                  alt="Sydney Opera House, Australia"
+                  width={400}
+                  height={300}
+                  className="h-full w-full object-cover transition hover:scale-105"
+                />
+              </div>
+              <div className="p-4 text-center">
+                <h3 className="font-semibold text-charcoal">Australia</h3>
+                <p className="mt-1 text-xs text-slate">Sydney Opera House</p>
+              </div>
             </div>
             {/* Ghana - Independence Square */}
-            <div className="card flex flex-col items-center p-6 text-center">
-              <div className="mb-4 text-6xl">🇬🇭</div>
-              <h3 className="font-semibold text-charcoal">Ghana</h3>
-              <p className="mt-1 text-xs text-slate">Independence Square</p>
+            <div className="card overflow-hidden">
+              <div className="aspect-[4/3] overflow-hidden">
+                <Image
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Independence_Arch_-_Accra%2C_Ghana.jpg/1280px-Independence_Arch_-_Accra%2C_Ghana.jpg"
+                  alt="Independence Square, Ghana"
+                  width={400}
+                  height={300}
+                  className="h-full w-full object-cover transition hover:scale-105"
+                />
+              </div>
+              <div className="p-4 text-center">
+                <h3 className="font-semibold text-charcoal">Ghana</h3>
+                <p className="mt-1 text-xs text-slate">Independence Arch</p>
+              </div>
             </div>
           </div>
         </div>
