@@ -375,7 +375,7 @@ export default function HomePage() {
             <div className="card overflow-hidden">
               <div className="aspect-[4/3] overflow-hidden">
                 <Image
-                  src="https://images.unsplash.com/photo-1511739001486-6bfe10ce65f4?w=400&h=300&fit=crop"
+                  src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=400&h=300&fit=crop"
                   alt="Eiffel Tower, France"
                   width={400}
                   height={300}
@@ -407,8 +407,8 @@ export default function HomePage() {
             <div className="card overflow-hidden">
               <div className="aspect-[4/3] overflow-hidden">
                 <Image
-                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Independence_Arch_-_Accra%2C_Ghana.jpg/1280px-Independence_Arch_-_Accra%2C_Ghana.jpg"
-                  alt="Independence Square, Ghana"
+                  src="https://images.unsplash.com/photo-1618828665011-0abd973f7bb8?w=400&h=300&fit=crop"
+                  alt="Accra, Ghana"
                   width={400}
                   height={300}
                   className="h-full w-full object-cover transition hover:scale-105"
