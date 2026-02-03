@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const stats = [
   { value: "98%", label: "Visa success rate" },
   { value: "99.6%", label: "Student satisfaction" },
@@ -97,6 +99,34 @@ const faqs = [
 export default function HomePage() {
   return (
     <main>
+      {/* Navigation */}
+      <nav className="border-b border-charcoal/10 bg-warmwhite">
+        <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-4">
+          <a href="/" className="flex items-center gap-3">
+            <Image
+              src="/logo.jpeg"
+              alt="Migration Pathway Logo"
+              width={48}
+              height={48}
+              className="rounded-full"
+              priority
+            />
+            <span className="font-serif text-xl font-semibold text-charcoal">Migration Pathway</span>
+          </a>
+          <div className="hidden items-center gap-6 md:flex">
+            <a href="#services" className="text-sm text-slate hover:text-charcoal">Services</a>
+            <a href="#about" className="text-sm text-slate hover:text-charcoal">About</a>
+            <a href="#consultation" className="text-sm text-slate hover:text-charcoal">Contact</a>
+            <a
+              href="https://wa.me/233302245205"
+              className="rounded-full bg-deepolive px-5 py-2 text-sm font-semibold text-white transition hover:bg-charcoal"
+            >
+              WhatsApp
+            </a>
+          </div>
+        </div>
+      </nav>
+
       <header className="section-spacing">
         <div className="mx-auto flex w-full max-w-6xl flex-col gap-10 px-6">
           <div className="flex flex-col gap-8">
@@ -391,8 +421,17 @@ export default function HomePage() {
         <div className="mx-auto w-full max-w-6xl px-6">
           <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
             <div className="max-w-sm">
-              <p className="font-semibold text-charcoal">Migration Pathway</p>
-              <p className="mt-2 text-sm text-slate">Migration and education services. Your trusted partner for study and work abroad guidance in Ghana.</p>
+              <div className="flex items-center gap-3">
+                <Image
+                  src="/logo.jpeg"
+                  alt="Migration Pathway Logo"
+                  width={40}
+                  height={40}
+                  className="rounded-full"
+                />
+                <p className="font-semibold text-charcoal">Migration Pathway</p>
+              </div>
+              <p className="mt-3 text-sm text-slate">Migration and education services. Your trusted partner for study and work abroad guidance in Ghana.</p>
               <p className="mt-3 text-xs text-slate">47 Nungua Link Road, Baatsona Spintex Road, Accra</p>
             </div>
             <div className="flex flex-col gap-2 text-sm">
@@ -465,11 +504,11 @@ export default function HomePage() {
             url: "https://mymigrationpathway.com",
             logo: {
               "@type": "ImageObject",
-              url: "https://mymigrationpathway.com/og-image.png",
-              width: 1200,
-              height: 630
+              url: "https://mymigrationpathway.com/logo.jpeg",
+              width: 200,
+              height: 200
             },
-            image: "https://mymigrationpathway.com/og-image.png",
+            image: "https://mymigrationpathway.com/logo.jpeg",
             description: "Ghana's trusted migration agency helping students and professionals secure study and work opportunities abroad with expert visa guidance and honest support.",
             foundingLocation: {
               "@type": "Place",
