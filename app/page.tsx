@@ -310,9 +310,9 @@ export default function HomePage() {
                 <Image
                   src={`/image-${num}.jpeg`}
                   alt={`Migration Pathway student ${num}`}
-                  width={400}
-                  height={300}
-                  className="h-64 w-full object-cover transition hover:scale-105"
+                  width={600}
+                  height={400}
+                  className="w-full object-contain transition hover:scale-105"
                 />
               </div>
             ))}
