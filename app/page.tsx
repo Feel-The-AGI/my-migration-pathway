@@ -274,13 +274,13 @@ export default function HomePage() {
           </div>
           <div className="grid gap-6 md:grid-cols-2">
             {testimonials.map((testimonial, index) => (
-              <div key={testimonial.name} className="card overflow-hidden md:flex">
+              <div key={testimonial.name} className="card overflow-hidden">
                 <Image
                   src={`/image-${index + 5}.jpeg`}
                   alt={testimonial.name}
-                  width={200}
-                  height={200}
-                  className="h-48 w-full object-cover md:h-auto md:w-48"
+                  width={600}
+                  height={400}
+                  className="w-full object-contain"
                 />
                 <div className="p-8">
                   <p className="text-base text-charcoal">"{testimonial.quote}"</p>
