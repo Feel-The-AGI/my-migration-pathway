@@ -7,9 +7,12 @@ const stats = [
 ];
 
 const socials = [
-  { name: "TikTok", href: "https://www.tiktok.com/@migrationpathway", icon: "tiktok" },
-  { name: "Facebook", href: "https://www.facebook.com/profile.php?id=61587483507405", icon: "facebook" },
-  { name: "Instagram", href: "https://www.instagram.com/mymigrationpathway/", icon: "instagram" }
+  { name: "TikTok", href: "https://www.tiktok.com/@migrationpathway" },
+  { name: "Facebook", href: "https://www.facebook.com/profile.php?id=61587483507405" },
+  { name: "Instagram", href: "https://www.instagram.com/mymigrationpathway/" },
+  { name: "LinkedIn", href: "https://www.linkedin.com/company/migrationpathway" },
+  { name: "Twitter", href: "https://twitter.com/migaborpathway" },
+  { name: "YouTube", href: "https://www.youtube.com/@migrationpathway" }
 ];
 
 const fullServices = [
@@ -118,7 +121,7 @@ export default function HomePage() {
             <a href="#about" className="text-sm text-slate hover:text-charcoal">About</a>
             <a href="#consultation" className="text-sm text-slate hover:text-charcoal">Contact</a>
             <a
-              href="https://wa.me/233302245205"
+              href="https://wa.me/233544764112"
               className="rounded-full bg-deepolive px-5 py-2 text-sm font-semibold text-white transition hover:bg-charcoal"
             >
               WhatsApp
@@ -128,8 +131,8 @@ export default function HomePage() {
       </nav>
 
       <header className="section-spacing">
-        <div className="mx-auto flex w-full max-w-6xl flex-col gap-10 px-6">
-          <div className="flex flex-col gap-8">
+        <div className="mx-auto flex w-full max-w-6xl flex-col gap-10 px-6 lg:flex-row lg:items-center">
+          <div className="flex flex-1 flex-col gap-8">
             <p className="small-label">Migration Pathway · Ghana</p>
             <h1 className="font-serif text-4xl leading-tight text-charcoal md:text-6xl">
               Your pathway to study or work abroad starts here.
@@ -141,7 +144,7 @@ export default function HomePage() {
             <div className="flex flex-wrap items-center gap-4">
               <a
                 className="rounded-full bg-deepolive px-6 py-3 text-sm font-semibold text-white shadow-soft transition hover:bg-charcoal"
-                href="https://wa.me/233302245205">
+                href="https://wa.me/233544764112">
                 Chat on WhatsApp
               </a>
               <a
@@ -152,6 +155,18 @@ export default function HomePage() {
               </a>
             </div>
           </div>
+          <div className="flex-1">
+            <Image
+              src="/image-1.jpeg"
+              alt="Students celebrating study abroad success"
+              width={600}
+              height={400}
+              className="rounded-3xl object-cover shadow-soft"
+              priority
+            />
+          </div>
+        </div>
+        <div className="mx-auto mt-12 w-full max-w-6xl px-6">
           <div className="grid gap-6 md:grid-cols-3">
             {stats.map((stat) => (
               <div key={stat.label} className="card p-6">
@@ -176,10 +191,19 @@ export default function HomePage() {
             </p>
           </div>
           <div className="grid gap-6 md:grid-cols-3">
-            {services.map((service) => (
-              <div key={service.title} className="card p-6">
-                <h3 className="text-xl font-semibold text-charcoal">{service.title}</h3>
-                <p className="mt-3 text-sm text-slate">{service.description}</p>
+            {services.map((service, index) => (
+              <div key={service.title} className="card overflow-hidden">
+                <Image
+                  src={`/image-${index + 2}.jpeg`}
+                  alt={service.title}
+                  width={400}
+                  height={250}
+                  className="h-48 w-full object-cover"
+                />
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold text-charcoal">{service.title}</h3>
+                  <p className="mt-3 text-sm text-slate">{service.description}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -249,13 +273,47 @@ export default function HomePage() {
             </h2>
           </div>
           <div className="grid gap-6 md:grid-cols-2">
-            {testimonials.map((testimonial) => (
-              <div key={testimonial.name} className="card p-8">
-                <p className="text-base text-charcoal">“{testimonial.quote}”</p>
-                <p className="mt-6 text-sm font-semibold text-charcoal">
-                  {testimonial.name}
-                </p>
-                <p className="text-xs text-slate">{testimonial.detail}</p>
+            {testimonials.map((testimonial, index) => (
+              <div key={testimonial.name} className="card overflow-hidden md:flex">
+                <Image
+                  src={`/image-${index + 5}.jpeg`}
+                  alt={testimonial.name}
+                  width={200}
+                  height={200}
+                  className="h-48 w-full object-cover md:h-auto md:w-48"
+                />
+                <div className="p-8">
+                  <p className="text-base text-charcoal">"{testimonial.quote}"</p>
+                  <p className="mt-6 text-sm font-semibold text-charcoal">
+                    {testimonial.name}
+                  </p>
+                  <p className="text-xs text-slate">{testimonial.detail}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      
+      {/* Photo Gallery */}
+      <section className="section-spacing">
+        <div className="mx-auto w-full max-w-6xl px-6">
+          <div className="mb-12 flex flex-col gap-4 text-center">
+            <p className="small-label">Our Community</p>
+            <h2 className="font-serif text-3xl md:text-4xl">
+              Students who chose Migration Pathway.
+            </h2>
+          </div>
+          <div className="grid gap-4 md:grid-cols-3">
+            {[1, 2, 3, 4, 5, 6].map((num) => (
+              <div key={num} className="overflow-hidden rounded-2xl">
+                <Image
+                  src={`/image-${num}.jpeg`}
+                  alt={`Migration Pathway student ${num}`}
+                  width={400}
+                  height={300}
+                  className="h-64 w-full object-cover transition hover:scale-105"
+                />
               </div>
             ))}
           </div>
@@ -308,12 +366,12 @@ export default function HomePage() {
               <div className="mt-6 flex flex-wrap gap-4">
                 <a
                   className="rounded-full bg-deepolive px-6 py-3 text-sm font-semibold text-white shadow-soft transition hover:bg-charcoal"
-                  href="https://wa.me/233302245205">
+                  href="https://wa.me/233544764112">
                   Start a WhatsApp chat
                 </a>
                 <a
                   className="rounded-full border border-charcoal/20 px-6 py-3 text-sm font-semibold text-charcoal transition hover:border-charcoal"
-                  href="mailto:hello@mymigrationpathway.com"
+                  href="mailto:mymigrationpathway@gmail.com"
                 >
                   Email the team
                 </a>
@@ -369,9 +427,9 @@ export default function HomePage() {
               </div>
               <div>
                 <p className="text-sm font-semibold text-charcoal">Contact</p>
-                <p className="text-sm text-slate">(030) 224-5205</p>
-                <p className="text-sm text-slate">(030) 252-7999</p>
-                <p className="text-sm text-slate">hello@mymigrationpathway.com</p>
+                <p className="text-sm text-slate">Phone: 0544764112</p>
+                <p className="text-sm text-slate">WhatsApp: 0544764112</p>
+                <p className="text-sm text-slate">mymigrationpathway@gmail.com</p>
               </div>
             </div>
           </div>
@@ -409,7 +467,7 @@ export default function HomePage() {
               </div>
               <a
                 className="rounded-full bg-white px-6 py-3 text-sm font-semibold text-deepolive"
-                href="https://wa.me/233302245205">
+                href="https://wa.me/233544764112">
                 Chat now
               </a>
             </div>
@@ -442,13 +500,13 @@ export default function HomePage() {
             </div>
             <div className="flex flex-col gap-2 text-sm">
               <p className="font-semibold text-charcoal">Contact</p>
-              <a className="text-slate hover:text-charcoal" href="tel:+233302245205">(030) 224-5205</a>
-              <a className="text-slate hover:text-charcoal" href="tel:+233302527999">(030) 252-7999</a>
-              <a className="text-slate hover:text-charcoal" href="mailto:hello@mymigrationpathway.com">hello@mymigrationpathway.com</a>
+              <a className="text-slate hover:text-charcoal" href="tel:+233544764112">0544764112</a>
+              <a className="text-slate hover:text-charcoal" href="https://wa.me/233544764112">WhatsApp: 0544764112</a>
+              <a className="text-slate hover:text-charcoal" href="mailto:mymigrationpathway@gmail.com">mymigrationpathway@gmail.com</a>
             </div>
             <div className="flex flex-col gap-3">
               <p className="font-semibold text-charcoal text-sm">Follow Us</p>
-              <div className="flex gap-3">
+              <div className="flex flex-wrap gap-2">
                 <a
                   href="https://www.tiktok.com/@migrationpathway"
                   target="_blank"
@@ -480,6 +538,39 @@ export default function HomePage() {
                 >
                   <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                  </svg>
+                </a>
+                <a
+                  href="https://www.linkedin.com/company/migrationpathway"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex h-9 w-9 items-center justify-center rounded-full bg-charcoal/5 text-slate transition hover:bg-deepolive hover:text-white"
+                  aria-label="LinkedIn"
+                >
+                  <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                  </svg>
+                </a>
+                <a
+                  href="https://twitter.com/migrationpathway"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex h-9 w-9 items-center justify-center rounded-full bg-charcoal/5 text-slate transition hover:bg-deepolive hover:text-white"
+                  aria-label="Twitter"
+                >
+                  <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                  </svg>
+                </a>
+                <a
+                  href="https://www.youtube.com/@migrationpathway"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex h-9 w-9 items-center justify-center rounded-full bg-charcoal/5 text-slate transition hover:bg-deepolive hover:text-white"
+                  aria-label="YouTube"
+                >
+                  <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
                   </svg>
                 </a>
               </div>
@@ -531,14 +622,17 @@ export default function HomePage() {
               "https://www.tiktok.com/@migrationpathway",
               "https://www.facebook.com/profile.php?id=61587483507405",
               "https://www.instagram.com/mymigrationpathway/",
-              "https://wa.me/233302245205"
+              "https://www.linkedin.com/company/migrationpathway",
+              "https://twitter.com/migaborpathway",
+              "https://www.youtube.com/@migrationpathway",
+              "https://wa.me/233544764112"
             ],
             contactPoint: [
               {
                 "@type": "ContactPoint",
                 contactType: "Customer Service",
-                telephone: "+233269599999",
-                email: "hello@mymigrationpathway.com",
+                telephone: "+233544764112",
+                email: "mymigrationpathway@gmail.com",
                 availableLanguage: ["English"],
                 hoursAvailable: {
                   "@type": "OpeningHoursSpecification",
