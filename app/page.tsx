@@ -310,18 +310,25 @@ export default function HomePage() {
               Students who chose Migration Pathway.
             </h2>
           </div>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {[1, 2, 3, 4, 5, 6].map((num) => (
-              <div key={num} className="overflow-hidden rounded-2xl bg-slate/10">
-                <Image
-                  src={`/image-${num}.jpeg`}
-                  alt={`Migration Pathway student ${num}`}
-                  width={800}
-                  height={500}
-                  className="w-full object-contain"
-                />
-              </div>
-            ))}
+          <div className="grid gap-6 md:grid-cols-2">
+            <div className="overflow-hidden rounded-2xl">
+              <Image
+                src="/image-1.jpeg"
+                alt="Migration Pathway graduates celebrating"
+                width={800}
+                height={500}
+                className="w-full object-contain"
+              />
+            </div>
+            <div className="overflow-hidden rounded-2xl">
+              <Image
+                src="/image-6.jpeg"
+                alt="University admission specialists"
+                width={800}
+                height={500}
+                className="w-full object-contain"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -340,15 +347,17 @@ export default function HomePage() {
           </div>
           <div className="grid gap-6 md:grid-cols-2">
             {/* United Kingdom */}
-            <div className="group relative h-64 overflow-hidden rounded-2xl">
+            <div className="group relative overflow-hidden rounded-2xl">
               <Image
                 src="/image-5.jpeg"
                 alt="Study in United Kingdom"
-                fill
-                className="object-cover transition group-hover:scale-105"
+                width={800}
+                height={400}
+                className="w-full object-cover transition group-hover:scale-105"
               />
+              <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
               <div className="absolute inset-0 flex flex-col justify-center p-8">
-                <h3 className="text-2xl font-bold text-white drop-shadow-lg md:text-3xl">
+                <h3 className="text-2xl font-bold text-white md:text-3xl">
                   STUDY IN<br />UNITED KINGDOM
                 </h3>
                 <a
@@ -362,15 +371,17 @@ export default function HomePage() {
               </div>
             </div>
             {/* USA & Canada */}
-            <div className="group relative h-64 overflow-hidden rounded-2xl">
+            <div className="group relative overflow-hidden rounded-2xl">
               <Image
                 src="/image-2.jpeg"
                 alt="Study in USA and Canada"
-                fill
-                className="object-cover transition group-hover:scale-105"
+                width={800}
+                height={400}
+                className="w-full object-cover transition group-hover:scale-105"
               />
+              <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
               <div className="absolute inset-0 flex flex-col justify-center p-8">
-                <h3 className="text-2xl font-bold text-white drop-shadow-lg md:text-3xl">
+                <h3 className="text-2xl font-bold text-white md:text-3xl">
                   STUDY IN USA<br />AND CANADA
                 </h3>
                 <a
@@ -384,15 +395,17 @@ export default function HomePage() {
               </div>
             </div>
             {/* Australia */}
-            <div className="group relative h-64 overflow-hidden rounded-2xl">
+            <div className="group relative overflow-hidden rounded-2xl">
               <Image
                 src="/image-3.jpeg"
                 alt="Study in Australia"
-                fill
-                className="object-cover transition group-hover:scale-105"
+                width={800}
+                height={400}
+                className="w-full object-cover transition group-hover:scale-105"
               />
+              <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
               <div className="absolute inset-0 flex flex-col justify-center p-8">
-                <h3 className="text-2xl font-bold text-white drop-shadow-lg md:text-3xl">
+                <h3 className="text-2xl font-bold text-white md:text-3xl">
                   STUDY IN<br />AUSTRALIA
                 </h3>
                 <a
@@ -406,15 +419,17 @@ export default function HomePage() {
               </div>
             </div>
             {/* Europe */}
-            <div className="group relative h-64 overflow-hidden rounded-2xl">
+            <div className="group relative overflow-hidden rounded-2xl">
               <Image
                 src="/image-4.jpeg"
                 alt="Study in Europe"
-                fill
-                className="object-cover transition group-hover:scale-105"
+                width={800}
+                height={400}
+                className="w-full object-cover transition group-hover:scale-105"
               />
+              <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
               <div className="absolute inset-0 flex flex-col justify-center p-8">
-                <h3 className="text-2xl font-bold text-white drop-shadow-lg md:text-3xl">
+                <h3 className="text-2xl font-bold text-white md:text-3xl">
                   STUDY IN<br />EUROPE
                 </h3>
                 <a
