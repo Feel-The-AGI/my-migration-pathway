@@ -31,7 +31,7 @@ body {
 }
 
 .section-spacing {
-  @apply py-16 md:py-24;
+  @apply py-12 sm:py-16 md:py-24;
 }
 
 .card {

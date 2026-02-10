@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { useState } from "react";
 
 const stats = [
   { value: "98%", label: "Visa success rate" },
@@ -100,23 +103,26 @@ const faqs = [
 ];
 
 export default function HomePage() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <main>
       {/* Navigation */}
-      <nav className="border-b border-charcoal/10 bg-warmwhite">
-        <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-4">
-          <a href="/" className="flex items-center gap-3">
+      <nav className="sticky top-0 z-50 border-b border-charcoal/10 bg-warmwhite/95 backdrop-blur-md">
+        <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-3 sm:px-6 sm:py-4">
+          <a href="/" className="flex items-center gap-2 sm:gap-3">
             <Image
               src="/logo.jpeg"
               alt="Migration Pathway Logo"
-              width={48}
-              height={48}
-              className="rounded-full"
+              width={40}
+              height={40}
+              className="rounded-full sm:h-12 sm:w-12"
               priority
             />
-            <span className="font-serif text-xl font-semibold text-charcoal">Migration Pathway</span>
+            <span className="font-serif text-base font-semibold text-charcoal sm:text-xl">Migration Pathway</span>
           </a>
-          <div className="hidden items-center gap-6 lg:flex">
+          {/* Desktop Nav */}
+          <div className="hidden items-center gap-5 lg:flex xl:gap-6">
             <a href="#services" className="text-sm text-slate hover:text-charcoal">Services</a>
             <a href="#destinations" className="text-sm text-slate hover:text-charcoal">Destinations</a>
             <a href="#about" className="text-sm text-slate hover:text-charcoal">About</a>
@@ -135,23 +141,64 @@ export default function HomePage() {
               WhatsApp
             </a>
           </div>
+          {/* Mobile Hamburger Button */}
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="flex h-10 w-10 items-center justify-center rounded-lg text-charcoal transition hover:bg-charcoal/5 lg:hidden"
+            aria-label="Toggle menu"
+            aria-expanded={menuOpen}
+          >
+            {menuOpen ? (
+              <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            ) : (
+              <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            )}
+          </button>
         </div>
+        {/* Mobile Menu Dropdown */}
+        {menuOpen && (
+          <div className="border-t border-charcoal/10 bg-warmwhite px-4 pb-4 pt-2 lg:hidden sm:px-6">
+            <div className="flex flex-col gap-1">
+              <a href="#services" onClick={() => setMenuOpen(false)} className="rounded-lg px-3 py-2.5 text-sm font-medium text-slate transition hover:bg-charcoal/5 hover:text-charcoal">Services</a>
+              <a href="#destinations" onClick={() => setMenuOpen(false)} className="rounded-lg px-3 py-2.5 text-sm font-medium text-slate transition hover:bg-charcoal/5 hover:text-charcoal">Destinations</a>
+              <a href="#about" onClick={() => setMenuOpen(false)} className="rounded-lg px-3 py-2.5 text-sm font-medium text-slate transition hover:bg-charcoal/5 hover:text-charcoal">About</a>
+              <a href="#videos" onClick={() => setMenuOpen(false)} className="rounded-lg px-3 py-2.5 text-sm font-medium text-slate transition hover:bg-charcoal/5 hover:text-charcoal">Videos</a>
+              <a href="#consultation" onClick={() => setMenuOpen(false)} className="rounded-lg px-3 py-2.5 text-sm font-medium text-slate transition hover:bg-charcoal/5 hover:text-charcoal">Contact</a>
+              <a href="#policies" onClick={() => setMenuOpen(false)} className="rounded-lg px-3 py-2.5 text-sm font-medium text-slate transition hover:bg-charcoal/5 hover:text-charcoal">Policies</a>
+              <a
+                href="https://whatsapp.com/channel/0029Vb8CWnkGU3BFQ3uq7W1H"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-2 flex items-center justify-center gap-2 rounded-full bg-green-600 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-green-700"
+              >
+                <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                </svg>
+                WhatsApp
+              </a>
+            </div>
+          </div>
+        )}
       </nav>
 
       <header className="section-spacing">
-        <div className="mx-auto flex w-full max-w-6xl flex-col gap-10 px-6 lg:flex-row lg:items-center">
-          <div className="flex flex-1 flex-col gap-8">
+        <div className="mx-auto flex w-full max-w-6xl flex-col gap-8 px-4 sm:px-6 lg:flex-row lg:items-center lg:gap-10">
+          <div className="flex flex-1 flex-col gap-6 sm:gap-8">
             <p className="small-label">Migration Pathway · Ghana</p>
-            <h1 className="font-serif text-4xl leading-tight text-charcoal md:text-6xl">
+            <h1 className="font-serif text-3xl leading-tight text-charcoal sm:text-4xl md:text-5xl lg:text-6xl">
               Your pathway to study or work abroad starts here.
             </h1>
-            <p className="max-w-2xl text-lg text-slate md:text-xl">
+            <p className="max-w-2xl text-base text-slate sm:text-lg md:text-xl">
               We help students and professionals in Ghana access verified schools and global
               employers with honest guidance, visa readiness, and step‑by‑step support.
             </p>
-            <div className="flex flex-wrap items-center gap-4">
+            <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
               <a
-                className="flex items-center gap-2 rounded-full bg-green-600 px-6 py-3 text-sm font-semibold text-white shadow-soft transition hover:bg-green-700"
+                className="flex items-center justify-center gap-2 rounded-full bg-green-600 px-6 py-3 text-sm font-semibold text-white shadow-soft transition hover:bg-green-700"
                 href="https://whatsapp.com/channel/0029Vb8CWnkGU3BFQ3uq7W1H">
                 <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
@@ -159,7 +206,7 @@ export default function HomePage() {
                 Chat on WhatsApp
               </a>
               <a
-                className="rounded-full border border-charcoal/20 px-6 py-3 text-sm font-semibold text-charcoal transition hover:border-charcoal"
+                className="rounded-full border border-charcoal/20 px-6 py-3 text-center text-sm font-semibold text-charcoal transition hover:border-charcoal"
                 href="#consultation"
               >
                 Book a consultation
@@ -172,13 +219,13 @@ export default function HomePage() {
               alt="Students celebrating study abroad success"
               width={600}
               height={400}
-              className="rounded-3xl object-cover shadow-soft"
+              className="w-full rounded-2xl object-cover shadow-soft sm:rounded-3xl"
               priority
             />
           </div>
         </div>
-        <div className="mx-auto mt-12 w-full max-w-6xl px-6">
-          <div className="grid gap-6 md:grid-cols-3">
+        <div className="mx-auto mt-8 w-full max-w-6xl px-4 sm:mt-12 sm:px-6">
+          <div className="grid gap-4 sm:gap-6 sm:grid-cols-3">
             {stats.map((stat) => (
               <div key={stat.label} className="card p-6">
                 <p className="text-3xl font-semibold text-deepolive">{stat.value}</p>
@@ -190,18 +237,18 @@ export default function HomePage() {
       </header>
 
       <section className="section-spacing bg-white" id="services">
-        <div className="mx-auto w-full max-w-6xl px-6">
-          <div className="mb-12 flex flex-col gap-4">
+        <div className="mx-auto w-full max-w-6xl px-4 sm:px-6">
+          <div className="mb-8 flex flex-col gap-4 sm:mb-12">
             <p className="small-label">Services</p>
-            <h2 className="font-serif text-3xl md:text-4xl">
+            <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl">
               A tailored migration plan for every stage.
             </h2>
-            <p className="max-w-2xl text-slate">
+            <p className="max-w-2xl text-sm text-slate sm:text-base">
               We focus on clarity, compliance, and outcomes. No vague promises—just a practical
               route to your next opportunity.
             </p>
           </div>
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className="grid gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((service, index) => (
               <div key={service.title} className="card overflow-hidden">
                 <Image
@@ -209,7 +256,7 @@ export default function HomePage() {
                   alt={service.title}
                   width={400}
                   height={250}
-                  className="h-48 w-full object-cover"
+                  className="h-40 w-full object-cover sm:h-48"
                 />
                 <div className="p-6">
                   <h3 className="text-xl font-semibold text-charcoal">{service.title}</h3>
@@ -222,13 +269,13 @@ export default function HomePage() {
       </section>
 
       <section className="section-spacing">
-        <div className="mx-auto flex w-full max-w-6xl flex-col gap-12 px-6 lg:flex-row">
+        <div className="mx-auto flex w-full max-w-6xl flex-col gap-8 px-4 sm:gap-12 sm:px-6 lg:flex-row">
           <div className="flex-1">
             <p className="small-label">Our process</p>
-            <h2 className="mt-4 font-serif text-3xl md:text-4xl">
+            <h2 className="mt-4 font-serif text-2xl sm:text-3xl md:text-4xl">
               Clear steps. Zero confusion.
             </h2>
-            <p className="mt-4 text-slate">
+            <p className="mt-4 text-sm text-slate sm:text-base">
               Every client receives a structured pathway plan, transparent timelines, and a
               checklist for what comes next.
             </p>
@@ -247,9 +294,9 @@ export default function HomePage() {
             </div>
           </div>
           <div className="flex-1">
-            <div className="gradient-border rounded-3xl p-8">
+            <div className="gradient-border rounded-2xl p-5 sm:rounded-3xl sm:p-8">
               <p className="small-label">Destinations</p>
-              <h3 className="mt-4 font-serif text-2xl">Global options, Ghana‑ready guidance.</h3>
+              <h3 className="mt-4 font-serif text-xl sm:text-2xl">Global options, Ghana‑ready guidance.</h3>
               <p className="mt-4 text-sm text-slate">
                 We focus on routes that match your profile—UK, Canada, Germany, USA, and trusted
                 emerging destinations for both study and work.
@@ -262,7 +309,7 @@ export default function HomePage() {
                 <li>Poland</li>
                 <li>Australia</li>
               </ul>
-              <div className="mt-8 rounded-2xl bg-white p-6 shadow-soft">
+              <div className="mt-6 rounded-xl bg-white p-4 shadow-soft sm:mt-8 sm:rounded-2xl sm:p-6">
                 <p className="text-sm text-slate">Trusted guidance means:</p>
                 <ul className="mt-3 space-y-2 text-sm text-charcoal">
                   <li>• Transparent eligibility checks</li>
@@ -276,14 +323,14 @@ export default function HomePage() {
       </section>
 
       <section className="section-spacing bg-white">
-        <div className="mx-auto w-full max-w-6xl px-6">
-          <div className="mb-12 flex flex-col gap-4">
+        <div className="mx-auto w-full max-w-6xl px-4 sm:px-6">
+          <div className="mb-8 flex flex-col gap-4 sm:mb-12">
             <p className="small-label">Success stories</p>
-            <h2 className="font-serif text-3xl md:text-4xl">
+            <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl">
               Families trust us with their future.
             </h2>
           </div>
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="grid gap-4 sm:gap-6 md:grid-cols-2">
             {testimonials.map((testimonial, index) => (
               <div key={testimonial.name} className="card overflow-hidden">
                 <Image
@@ -293,7 +340,7 @@ export default function HomePage() {
                   height={400}
                   className="w-full object-contain"
                 />
-                <div className="p-8">
+                <div className="p-5 sm:p-8">
                   <p className="text-base text-charcoal">"{testimonial.quote}"</p>
                   <p className="mt-6 text-sm font-semibold text-charcoal">
                     {testimonial.name}
@@ -308,14 +355,14 @@ export default function HomePage() {
       
       {/* Photo Gallery */}
       <section className="section-spacing">
-        <div className="mx-auto w-full max-w-6xl px-6">
-          <div className="mb-12 flex flex-col gap-4 text-center">
+        <div className="mx-auto w-full max-w-6xl px-4 sm:px-6">
+          <div className="mb-8 flex flex-col gap-4 text-center sm:mb-12">
             <p className="small-label">Our Community</p>
-            <h2 className="font-serif text-3xl md:text-4xl">
+            <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl">
               Students who chose Migration Pathway.
             </h2>
           </div>
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="grid gap-4 sm:gap-6 md:grid-cols-2">
             <div className="overflow-hidden rounded-2xl">
               <Image
                 src="/image-1.jpeg"
@@ -340,108 +387,108 @@ export default function HomePage() {
 
       {/* World Destinations */}
       <section className="section-spacing bg-white" id="destinations">
-        <div className="mx-auto w-full max-w-6xl px-6">
-          <div className="mb-12 flex flex-col gap-4 text-center">
+        <div className="mx-auto w-full max-w-6xl px-4 sm:px-6">
+          <div className="mb-8 flex flex-col gap-4 text-center sm:mb-12">
             <p className="small-label">Destinations</p>
-            <h2 className="font-serif text-3xl md:text-4xl">
+            <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl">
               Your gateway to the world.
             </h2>
-            <p className="mx-auto max-w-2xl text-slate">
+            <p className="mx-auto max-w-2xl text-sm text-slate sm:text-base">
               We help students and professionals relocate to these amazing destinations.
             </p>
           </div>
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="grid gap-4 sm:gap-6 md:grid-cols-2">
             {/* United Kingdom */}
-            <div className="group relative overflow-hidden rounded-2xl">
+            <div className="group relative overflow-hidden rounded-xl sm:rounded-2xl">
               <Image
                 src="/image-5.jpeg"
                 alt="Study in United Kingdom"
                 width={800}
                 height={400}
-                className="w-full object-cover transition group-hover:scale-105"
+                className="aspect-[2/1] w-full object-cover transition group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
-              <div className="absolute inset-0 flex flex-col justify-center p-8">
-                <h3 className="text-2xl font-bold text-white md:text-3xl">
+              <div className="absolute inset-0 flex flex-col justify-center p-4 sm:p-6 md:p-8">
+                <h3 className="text-xl font-bold text-white sm:text-2xl md:text-3xl">
                   STUDY IN<br />UNITED KINGDOM
                 </h3>
                 <a
                   href="https://forms.gle/UK_PLACEHOLDER"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-4 w-fit rounded-full bg-purple-500 px-6 py-2 text-sm font-semibold text-white shadow-lg transition hover:bg-purple-600"
+                  className="mt-3 w-fit rounded-full bg-purple-500 px-4 py-1.5 text-xs font-semibold text-white shadow-lg transition hover:bg-purple-600 sm:mt-4 sm:px-6 sm:py-2 sm:text-sm"
                 >
                   Apply Now
                 </a>
               </div>
             </div>
             {/* USA & Canada */}
-            <div className="group relative overflow-hidden rounded-2xl">
+            <div className="group relative overflow-hidden rounded-xl sm:rounded-2xl">
               <Image
                 src="/image-2.jpeg"
                 alt="Study in USA and Canada"
                 width={800}
                 height={400}
-                className="w-full object-cover transition group-hover:scale-105"
+                className="aspect-[2/1] w-full object-cover transition group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
-              <div className="absolute inset-0 flex flex-col justify-center p-8">
-                <h3 className="text-2xl font-bold text-white md:text-3xl">
+              <div className="absolute inset-0 flex flex-col justify-center p-4 sm:p-6 md:p-8">
+                <h3 className="text-xl font-bold text-white sm:text-2xl md:text-3xl">
                   STUDY IN USA<br />AND CANADA
                 </h3>
                 <a
                   href="https://forms.gle/USA_CANADA_PLACEHOLDER"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-4 w-fit rounded-full bg-purple-500 px-6 py-2 text-sm font-semibold text-white shadow-lg transition hover:bg-purple-600"
+                  className="mt-3 w-fit rounded-full bg-purple-500 px-4 py-1.5 text-xs font-semibold text-white shadow-lg transition hover:bg-purple-600 sm:mt-4 sm:px-6 sm:py-2 sm:text-sm"
                 >
                   Apply Now
                 </a>
               </div>
             </div>
             {/* Australia */}
-            <div className="group relative overflow-hidden rounded-2xl">
+            <div className="group relative overflow-hidden rounded-xl sm:rounded-2xl">
               <Image
                 src="/image-3.jpeg"
                 alt="Study in Australia"
                 width={800}
                 height={400}
-                className="w-full object-cover transition group-hover:scale-105"
+                className="aspect-[2/1] w-full object-cover transition group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
-              <div className="absolute inset-0 flex flex-col justify-center p-8">
-                <h3 className="text-2xl font-bold text-white md:text-3xl">
+              <div className="absolute inset-0 flex flex-col justify-center p-4 sm:p-6 md:p-8">
+                <h3 className="text-xl font-bold text-white sm:text-2xl md:text-3xl">
                   STUDY IN<br />AUSTRALIA
                 </h3>
                 <a
                   href="https://forms.gle/AUSTRALIA_PLACEHOLDER"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-4 w-fit rounded-full bg-purple-500 px-6 py-2 text-sm font-semibold text-white shadow-lg transition hover:bg-purple-600"
+                  className="mt-3 w-fit rounded-full bg-purple-500 px-4 py-1.5 text-xs font-semibold text-white shadow-lg transition hover:bg-purple-600 sm:mt-4 sm:px-6 sm:py-2 sm:text-sm"
                 >
                   Apply Now
                 </a>
               </div>
             </div>
             {/* Europe */}
-            <div className="group relative overflow-hidden rounded-2xl">
+            <div className="group relative overflow-hidden rounded-xl sm:rounded-2xl">
               <Image
                 src="/image-4.jpeg"
                 alt="Study in Europe"
                 width={800}
                 height={400}
-                className="w-full object-cover transition group-hover:scale-105"
+                className="aspect-[2/1] w-full object-cover transition group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
-              <div className="absolute inset-0 flex flex-col justify-center p-8">
-                <h3 className="text-2xl font-bold text-white md:text-3xl">
+              <div className="absolute inset-0 flex flex-col justify-center p-4 sm:p-6 md:p-8">
+                <h3 className="text-xl font-bold text-white sm:text-2xl md:text-3xl">
                   STUDY IN<br />EUROPE
                 </h3>
                 <a
                   href="https://forms.gle/EUROPE_PLACEHOLDER"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-4 w-fit rounded-full bg-purple-500 px-6 py-2 text-sm font-semibold text-white shadow-lg transition hover:bg-purple-600"
+                  className="mt-3 w-fit rounded-full bg-purple-500 px-4 py-1.5 text-xs font-semibold text-white shadow-lg transition hover:bg-purple-600 sm:mt-4 sm:px-6 sm:py-2 sm:text-sm"
                 >
                   Apply Now
                 </a>
@@ -453,24 +500,24 @@ export default function HomePage() {
 
       {/* About Section */}
       <section className="section-spacing" id="about">
-        <div className="mx-auto w-full max-w-6xl px-6">
-          <div className="grid gap-12 lg:grid-cols-2">
+        <div className="mx-auto w-full max-w-6xl px-4 sm:px-6">
+          <div className="grid gap-8 sm:gap-12 lg:grid-cols-2">
             <div>
               <p className="small-label">About us</p>
-              <h2 className="mt-4 font-serif text-3xl md:text-4xl">A global leader in education & migration.</h2>
-              <p className="mt-6 text-slate">
+              <h2 className="mt-4 font-serif text-2xl sm:text-3xl md:text-4xl">A global leader in education & migration.</h2>
+              <p className="mt-4 text-sm text-slate sm:mt-6 sm:text-base">
                 Migration Pathway is a global leader in counselling and providing full application support to place international students into universities abroad.
               </p>
-              <p className="mt-4 text-slate">
+              <p className="mt-3 text-sm text-slate sm:mt-4 sm:text-base">
                 Our consultants are former international students who experienced the difficulties and opportunities UK higher education provides. They come from a variety of nationalities and have been trained by our trusted university partners.
               </p>
-              <p className="mt-4 text-slate">
+              <p className="mt-3 text-sm text-slate sm:mt-4 sm:text-base">
                 We represent 40+ UK higher education institutions with a 98% visa success rate and 99.6% student satisfaction rate. Our consultants speak 20 different languages across our global offices.
               </p>
             </div>
-            <div className="gradient-border rounded-3xl p-8">
+            <div className="gradient-border rounded-2xl p-5 sm:rounded-3xl sm:p-8">
               <p className="small-label">What we provide</p>
-              <h3 className="mt-4 font-serif text-2xl">Comprehensive support services</h3>
+              <h3 className="mt-4 font-serif text-xl sm:text-2xl">Comprehensive support services</h3>
               <ul className="mt-6 grid gap-3 text-sm text-charcoal">
                 {fullServices.map((service) => (
                   <li key={service} className="flex items-start gap-2">
@@ -486,17 +533,17 @@ export default function HomePage() {
 
       {/* Videos Section */}
       <section className="section-spacing bg-white" id="videos">
-        <div className="mx-auto w-full max-w-6xl px-6">
-          <div className="mb-12 flex flex-col gap-4 text-center">
+        <div className="mx-auto w-full max-w-6xl px-4 sm:px-6">
+          <div className="mb-8 flex flex-col gap-4 text-center sm:mb-12">
             <p className="small-label">Videos</p>
-            <h2 className="font-serif text-3xl md:text-4xl">
+            <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl">
               Watch &amp; learn from our experts.
             </h2>
-            <p className="mx-auto max-w-2xl text-slate">
+            <p className="mx-auto max-w-2xl text-sm text-slate sm:text-base">
               Get insights on study abroad, visa tips, and migration guidance from the Migration Pathway team.
             </p>
           </div>
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
             <div className="aspect-video overflow-hidden rounded-2xl shadow-card">
               <iframe
                 className="h-full w-full"
@@ -542,18 +589,18 @@ export default function HomePage() {
       </section>
       
       <section className="section-spacing bg-white" id="consultation">
-        <div className="mx-auto w-full max-w-6xl px-6">
-          <div className="card grid gap-8 p-10 lg:grid-cols-[1.2fr_1fr]">
+        <div className="mx-auto w-full max-w-6xl px-4 sm:px-6">
+          <div className="card grid gap-6 p-5 sm:gap-8 sm:p-8 md:p-10 lg:grid-cols-[1.2fr_1fr]">
             <div>
               <p className="small-label">Consultation</p>
-              <h2 className="mt-4 font-serif text-3xl">Let's design your pathway plan.</h2>
-              <p className="mt-4 text-slate">
+              <h2 className="mt-4 font-serif text-2xl sm:text-3xl">Let's design your pathway plan.</h2>
+              <p className="mt-3 text-sm text-slate sm:mt-4 sm:text-base">
                 Tell us your destination, timeline, and budget. We'll outline the steps and help
                 you prepare confidently.
               </p>
-              <div className="mt-6 flex flex-wrap gap-4">
+              <div className="mt-5 flex flex-col gap-3 sm:mt-6 sm:flex-row sm:flex-wrap sm:gap-4">
                 <a
-                  className="flex items-center gap-2 rounded-full bg-green-600 px-6 py-3 text-sm font-semibold text-white shadow-soft transition hover:bg-green-700"
+                  className="flex items-center justify-center gap-2 rounded-full bg-green-600 px-6 py-3 text-sm font-semibold text-white shadow-soft transition hover:bg-green-700"
                   href="https://whatsapp.com/channel/0029Vb8CWnkGU3BFQ3uq7W1H">
                   <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
@@ -561,7 +608,7 @@ export default function HomePage() {
                   Start a WhatsApp chat
                 </a>
                 <a
-                  className="rounded-full border border-charcoal/20 px-6 py-3 text-sm font-semibold text-charcoal transition hover:border-charcoal"
+                  className="rounded-full border border-charcoal/20 px-6 py-3 text-center text-sm font-semibold text-charcoal transition hover:border-charcoal"
                   href="mailto:mymigrationpathway@gmail.com"
                 >
                   Email the team
@@ -605,7 +652,7 @@ export default function HomePage() {
                 </a>
               </div>
             </div>
-            <div className="space-y-6 rounded-2xl bg-warmwhite p-6">
+            <div className="space-y-4 rounded-xl bg-warmwhite p-4 sm:space-y-6 sm:rounded-2xl sm:p-6">
               <div>
                 <p className="text-sm font-semibold text-charcoal">Accra Office</p>
                 <p className="text-sm text-slate">47 Nungua Link Road, Second Floor</p>
@@ -643,12 +690,12 @@ export default function HomePage() {
       </section>
 
       <section className="section-spacing bg-white">
-        <div className="mx-auto w-full max-w-6xl px-6">
-          <div className="mb-10 flex flex-col gap-4">
+        <div className="mx-auto w-full max-w-6xl px-4 sm:px-6">
+          <div className="mb-8 flex flex-col gap-4 sm:mb-10">
             <p className="small-label">FAQ</p>
-            <h2 className="font-serif text-3xl md:text-4xl">Answers before you begin.</h2>
+            <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl">Answers before you begin.</h2>
           </div>
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className="grid gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {faqs.map((faq) => (
               <div key={faq.question} className="card p-6">
                 <h3 className="text-base font-semibold text-charcoal">{faq.question}</h3>
@@ -660,19 +707,19 @@ export default function HomePage() {
       </section>
 
       <section className="section-spacing">
-        <div className="mx-auto w-full max-w-6xl px-6">
-          <div className="rounded-3xl bg-deepolive px-8 py-12 text-white md:px-12">
+        <div className="mx-auto w-full max-w-6xl px-4 sm:px-6">
+          <div className="rounded-2xl bg-deepolive px-6 py-10 text-white sm:rounded-3xl sm:px-8 sm:py-12 md:px-12">
             <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
               <div>
                 <p className="small-label text-white/70">Get started</p>
-                <h2 className="mt-3 font-serif text-3xl">Ready to take the next step?</h2>
+                <h2 className="mt-3 font-serif text-2xl sm:text-3xl">Ready to take the next step?</h2>
                 <p className="mt-3 text-sm text-white/80">
                   A clear pathway begins with one conversation. We respond fast and outline your
                   options clearly.
                 </p>
               </div>
               <a
-                className="flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-deepolive"
+                className="flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-deepolive md:w-auto"
                 href="https://whatsapp.com/channel/0029Vb8CWnkGU3BFQ3uq7W1H">
                 <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
@@ -686,14 +733,14 @@ export default function HomePage() {
 
       {/* Policies Section */}
       <section className="section-spacing" id="policies">
-        <div className="mx-auto w-full max-w-6xl px-6">
-          <div className="mb-12 flex flex-col gap-4 text-center">
+        <div className="mx-auto w-full max-w-6xl px-4 sm:px-6">
+          <div className="mb-8 flex flex-col gap-4 text-center sm:mb-12">
             <p className="small-label">Our Policies</p>
-            <h2 className="font-serif text-3xl md:text-4xl">
+            <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl">
               Customer policies &amp; guidelines.
             </h2>
           </div>
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="grid gap-4 sm:gap-6 sm:grid-cols-2">
             <div className="card p-6">
               <h3 className="text-lg font-semibold text-charcoal">Refund Policy</h3>
               <p className="mt-3 text-sm text-slate">
@@ -735,8 +782,8 @@ export default function HomePage() {
       </section>
 
       {/* Disclaimer */}
-      <section className="border-t border-charcoal/10 bg-warmwhite py-10">
-        <div className="mx-auto w-full max-w-6xl px-6">
+      <section className="border-t border-charcoal/10 bg-warmwhite py-8 sm:py-10">
+        <div className="mx-auto w-full max-w-6xl px-4 sm:px-6">
           <h3 className="text-sm font-semibold text-charcoal">Disclaimer</h3>
           <p className="mt-3 text-xs leading-relaxed text-slate">
             Migration Pathway provides professional consultancy and guidance services for education and migration. We are not a law firm, nor are we affiliated with any government immigration authority. No guarantee of visa approval or admission is made or implied. Outcomes depend on individual circumstances, documentation accuracy, and the decisions of relevant authorities. All information provided on this website is for general purposes only and does not constitute legal advice. Migration Pathway shall not be held responsible for any decisions made based on the information provided. By engaging our services, clients acknowledge that they have read, understood, and agreed to our terms and policies.
@@ -744,10 +791,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      <footer className="border-t border-charcoal/10 py-10">
-        <div className="mx-auto w-full max-w-6xl px-6">
-          <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
-            <div className="max-w-sm">
+      <footer className="border-t border-charcoal/10 py-8 sm:py-10">
+        <div className="mx-auto w-full max-w-6xl px-4 sm:px-6">
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="sm:col-span-2 lg:col-span-1">
               <div className="flex items-center gap-3">
                 <Image
                   src="/logo.jpeg"
@@ -774,10 +821,10 @@ export default function HomePage() {
               <p className="font-semibold text-charcoal">Contact</p>
               <a className="text-slate hover:text-charcoal" href="tel:+233544764112">0544764112</a>
               <a className="text-slate hover:text-charcoal" href="https://whatsapp.com/channel/0029Vb8CWnkGU3BFQ3uq7W1H">WhatsApp: 0544764112</a>
-              <a className="text-slate hover:text-charcoal" href="mailto:mymigrationpathway@gmail.com">mymigrationpathway@gmail.com</a>
+              <a className="break-all text-slate hover:text-charcoal" href="mailto:mymigrationpathway@gmail.com">mymigrationpathway@gmail.com</a>
             </div>
             <div className="flex flex-col gap-3">
-              <p className="font-semibold text-charcoal text-sm">Follow Us</p>
+              <p className="text-sm font-semibold text-charcoal">Follow Us</p>
               <div className="flex flex-wrap gap-2">
                 <a
                   href="https://www.tiktok.com/@migrationpathway"
@@ -848,7 +895,7 @@ export default function HomePage() {
               </div>
             </div>
           </div>
-          <div className="mt-10 border-t border-charcoal/10 pt-6 text-center text-xs text-slate">
+          <div className="mt-8 border-t border-charcoal/10 pt-6 text-center text-xs text-slate sm:mt-10">
             <p>© {new Date().getFullYear()} Migration Pathway. All rights reserved.</p>
           </div>
         </div>
