@@ -9,10 +9,6 @@ export const metadata: Metadata = {
     "Learn about Migration Pathway — Ghana's trusted education and migration consultancy. Meet our team, discover our mission, and see our accreditations.",
 };
 
-const team = [
-  { name: "Migration Pathway Team", role: "Accra Headquarters", image: "/image-1.jpeg" },
-];
-
 const process = [
   { step: "1", title: "Free Consultation", desc: "We listen to your goals, budget, and timeline to understand what route suits you best." },
   { step: "2", title: "Profile Assessment", desc: "We review your academic background, work experience, and documents to determine eligibility." },

@@ -1,21 +1,13 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 
 const stats = [
   { value: "98%", label: "Visa success rate" },
   { value: "99.6%", label: "Student satisfaction" },
   { value: "40+", label: "UK university partners" }
-];
-
-const socials = [
-  { name: "TikTok", href: "https://www.tiktok.com/@migrationpathway" },
-  { name: "Facebook", href: "https://www.facebook.com/profile.php?id=61587483507405" },
-  { name: "Instagram", href: "https://www.instagram.com/mymigrationpathway/" },
-  { name: "LinkedIn", href: "https://www.linkedin.com/company/migrationpathway" },
-  { name: "Twitter", href: "https://twitter.com/migaborpathway" },
-  { name: "YouTube", href: "https://www.youtube.com/@migrationpathway" }
 ];
 
 const fullServices = [
@@ -110,7 +102,7 @@ export default function HomePage() {
       {/* Navigation */}
       <nav className="sticky top-0 z-50 border-b border-charcoal/10 bg-warmwhite/95 backdrop-blur-md">
         <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-3 sm:px-6 sm:py-4">
-          <a href="/" className="flex items-center gap-2 sm:gap-3">
+          <Link href="/" className="flex items-center gap-2 sm:gap-3">
             <Image
               src="/logo.jpeg"
               alt="Migration Pathway Logo"
@@ -120,7 +112,7 @@ export default function HomePage() {
               priority
             />
             <span className="font-serif text-base font-semibold text-charcoal sm:text-xl">Migration Pathway</span>
-          </a>
+          </Link>
           {/* Desktop Nav */}
           <div className="hidden items-center gap-5 lg:flex xl:gap-6">
             <a href="#services" className="text-sm text-slate hover:text-charcoal">Services</a>
