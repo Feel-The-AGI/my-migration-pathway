@@ -115,11 +115,11 @@ export default function HomePage() {
           </Link>
           {/* Desktop Nav */}
           <div className="hidden items-center gap-5 lg:flex xl:gap-6">
-            <a href="#services" className="text-sm text-slate hover:text-charcoal">Services</a>
-            <a href="#destinations" className="text-sm text-slate hover:text-charcoal">Destinations</a>
-            <a href="#about" className="text-sm text-slate hover:text-charcoal">About</a>
+            <Link href="/services" className="text-sm text-slate hover:text-charcoal">Services</Link>
+            <Link href="/destinations" className="text-sm text-slate hover:text-charcoal">Destinations</Link>
+            <Link href="/about" className="text-sm text-slate hover:text-charcoal">About</Link>
             <a href="#videos" className="text-sm text-slate hover:text-charcoal">Videos</a>
-            <a href="#consultation" className="text-sm text-slate hover:text-charcoal">Contact</a>
+            <Link href="/contact" className="text-sm text-slate hover:text-charcoal">Contact</Link>
             <a href="#policies" className="text-sm text-slate hover:text-charcoal">Policies</a>
             <a
               href="https://whatsapp.com/channel/0029Vb8CWnkGU3BFQ3uq7W1H"
@@ -155,11 +155,11 @@ export default function HomePage() {
         {menuOpen && (
           <div className="border-t border-charcoal/10 bg-warmwhite px-4 pb-4 pt-2 lg:hidden sm:px-6">
             <div className="flex flex-col gap-1">
-              <a href="#services" onClick={() => setMenuOpen(false)} className="rounded-lg px-3 py-2.5 text-sm font-medium text-slate transition hover:bg-charcoal/5 hover:text-charcoal">Services</a>
-              <a href="#destinations" onClick={() => setMenuOpen(false)} className="rounded-lg px-3 py-2.5 text-sm font-medium text-slate transition hover:bg-charcoal/5 hover:text-charcoal">Destinations</a>
-              <a href="#about" onClick={() => setMenuOpen(false)} className="rounded-lg px-3 py-2.5 text-sm font-medium text-slate transition hover:bg-charcoal/5 hover:text-charcoal">About</a>
+              <Link href="/services" onClick={() => setMenuOpen(false)} className="rounded-lg px-3 py-2.5 text-sm font-medium text-slate transition hover:bg-charcoal/5 hover:text-charcoal">Services</Link>
+              <Link href="/destinations" onClick={() => setMenuOpen(false)} className="rounded-lg px-3 py-2.5 text-sm font-medium text-slate transition hover:bg-charcoal/5 hover:text-charcoal">Destinations</Link>
+              <Link href="/about" onClick={() => setMenuOpen(false)} className="rounded-lg px-3 py-2.5 text-sm font-medium text-slate transition hover:bg-charcoal/5 hover:text-charcoal">About</Link>
               <a href="#videos" onClick={() => setMenuOpen(false)} className="rounded-lg px-3 py-2.5 text-sm font-medium text-slate transition hover:bg-charcoal/5 hover:text-charcoal">Videos</a>
-              <a href="#consultation" onClick={() => setMenuOpen(false)} className="rounded-lg px-3 py-2.5 text-sm font-medium text-slate transition hover:bg-charcoal/5 hover:text-charcoal">Contact</a>
+              <Link href="/contact" onClick={() => setMenuOpen(false)} className="rounded-lg px-3 py-2.5 text-sm font-medium text-slate transition hover:bg-charcoal/5 hover:text-charcoal">Contact</Link>
               <a href="#policies" onClick={() => setMenuOpen(false)} className="rounded-lg px-3 py-2.5 text-sm font-medium text-slate transition hover:bg-charcoal/5 hover:text-charcoal">Policies</a>
               <a
                 href="https://whatsapp.com/channel/0029Vb8CWnkGU3BFQ3uq7W1H"
@@ -808,11 +808,11 @@ export default function HomePage() {
             </div>
             <div className="flex flex-col gap-2 text-sm">
               <p className="font-semibold text-charcoal">Quick Links</p>
-              <a className="text-slate hover:text-charcoal" href="#services">Services</a>
-              <a className="text-slate hover:text-charcoal" href="#destinations">Destinations</a>
-              <a className="text-slate hover:text-charcoal" href="#about">About Us</a>
+              <Link className="text-slate hover:text-charcoal" href="/services">Services</Link>
+              <Link className="text-slate hover:text-charcoal" href="/destinations">Destinations</Link>
+              <Link className="text-slate hover:text-charcoal" href="/about">About Us</Link>
               <a className="text-slate hover:text-charcoal" href="#videos">Videos</a>
-              <a className="text-slate hover:text-charcoal" href="#consultation">Consultation</a>
+              <Link className="text-slate hover:text-charcoal" href="/contact">Contact</Link>
               <a className="text-slate hover:text-charcoal" href="#policies">Policies</a>
             </div>
             <div className="flex flex-col gap-2 text-sm">
