@@ -46,6 +46,7 @@ export default function Footer() {
             <div className="flex flex-col gap-2 text-sm">
               <p className="font-semibold text-charcoal">Contact</p>
               <a className="text-slate hover:text-charcoal" href="tel:+233544764112">0544764112</a>
+              <a className="text-slate hover:text-charcoal" href="tel:+233204115667">0204115667</a>
               <a className="text-slate hover:text-charcoal" href="https://whatsapp.com/channel/0029Vb8CWnkGU3BFQ3uq7W1H">WhatsApp Channel</a>
               <a className="break-all text-slate hover:text-charcoal" href="mailto:mymigrationpathway@gmail.com">mymigrationpathway@gmail.com</a>
             </div>
